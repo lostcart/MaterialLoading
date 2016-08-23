@@ -38,3 +38,11 @@ captures/
 
 # Keystore files
 *.jks
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+.idea
+*.iml
+
+# Thumbnail file
+.DS_Store
