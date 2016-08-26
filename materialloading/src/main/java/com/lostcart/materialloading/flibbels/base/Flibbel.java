@@ -1,4 +1,4 @@
-package com.lostcart.materialloading.flibbels;
+package com.lostcart.materialloading.flibbels.base;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -19,7 +19,7 @@ public abstract class Flibbel {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(color);
     }
-
+    
     public void draw(Canvas canvas, long diffTime) {
         if (!setup) {
             width = canvas.getWidth();

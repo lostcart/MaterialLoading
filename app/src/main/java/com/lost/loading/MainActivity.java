@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.lostcart.materialloading.MaterialLoadingView;
+import com.lostcart.materialloading.types.LoadingTypeJazzyRings;
 import com.lostcart.materialloading.types.LoadingTypeSimple;
 import com.lostcart.materialloading.types.LoadingTypeSwoosh;
 
@@ -20,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         topMaterialLoadingView.setLoadingType(new LoadingTypeSimple());
         middleMaterialLoadingView.setLoadingType(new LoadingTypeSwoosh());
-        bottomMaterialLoadingView.setLoadingType(new LoadingTypeSimple());
+        bottomMaterialLoadingView.setLoadingType(new LoadingTypeJazzyRings());
     }
 }

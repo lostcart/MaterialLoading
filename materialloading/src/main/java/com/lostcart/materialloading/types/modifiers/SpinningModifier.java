@@ -2,6 +2,7 @@ package com.lostcart.materialloading.types.modifiers;
 
 import android.graphics.Canvas;
 
+import com.lostcart.materialloading.types.modifiers.base.Modifier;
 import com.lostcart.materialloading.utils.MathUtils;
 
 public class SpinningModifier extends Modifier {

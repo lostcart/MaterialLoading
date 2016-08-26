@@ -2,8 +2,8 @@ package com.lostcart.materialloading.types;
 
 import android.graphics.Canvas;
 
-import com.lostcart.materialloading.flibbels.Flibbel;
-import com.lostcart.materialloading.types.modifiers.Modifier;
+import com.lostcart.materialloading.flibbels.base.Flibbel;
+import com.lostcart.materialloading.types.modifiers.base.Modifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,19 +23,19 @@ public abstract class LoadingType {
 
     public class Flibbeler {
         private Flibbel flibbel;
-        private Modifier modifier;
+        private Modifier[] modifiers;
 
-        public Flibbeler(Flibbel flibbel, Modifier modifier) {
+        public Flibbeler(Flibbel flibbel, Modifier... modifiers) {
             this.flibbel = flibbel;
-            this.modifier = modifier;
+            this.modifiers = modifiers;
         }
 
         public Flibbel getFlibbel() {
             return flibbel;
         }
 
-        public Modifier getModifier() {
-            return modifier;
+        public Modifier[] getModifiers() {
+            return modifiers;
         }
     }
 
@@ -45,16 +45,22 @@ public abstract class LoadingType {
         for (Flibbeler flibbeler : flibbelers) {
             if (lastUpdateTime != 0) {
                 flibbeler.getFlibbel().update(currentTime - lastUpdateTime);
-                if(flibbeler.getModifier()!=null) {
-                    flibbeler.getModifier().update(currentTime - lastUpdateTime);
+                if (flibbeler.getModifiers() != null) {
+                    for (Modifier modifier : flibbeler.getModifiers()) {
+                        modifier.update(currentTime - lastUpdateTime);
+                    }
                 }
             }
-            if (flibbeler.getModifier() != null) {
-                flibbeler.getModifier().preDraw(canvas);
+            if (flibbeler.getModifiers() != null) {
+                for (Modifier modifier : flibbeler.getModifiers()) {
+                    modifier.preDraw(canvas);
+                }
             }
             flibbeler.getFlibbel().draw(canvas, currentTime - lastUpdateTime);
-            if (flibbeler.getModifier() != null) {
-                flibbeler.getModifier().postDraw(canvas);
+            if (flibbeler.getModifiers() != null) {
+                for (Modifier modifier : flibbeler.getModifiers()) {
+                    modifier.postDraw(canvas);
+                }
             }
         }
 

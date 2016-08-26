@@ -1,6 +1,7 @@
 package com.lostcart.materialloading.types;
 
-import com.lostcart.materialloading.flibbels.SpinningDot;
+import com.lostcart.materialloading.flibbels.Dot;
+import com.lostcart.materialloading.types.modifiers.PulseModifier;
 import com.lostcart.materialloading.types.modifiers.SpinningModifier;
 
 /**
@@ -9,8 +10,8 @@ import com.lostcart.materialloading.types.modifiers.SpinningModifier;
 public class LoadingTypeSimple extends LoadingType {
 
     public LoadingTypeSimple() {
-        //    addFlibbel(new StaticDot(LoadingType.yellowColor));
-        addFlibbeler(new Flibbeler(new SpinningDot(LoadingType.blueColor), new SpinningModifier()));
-        addFlibbeler(new Flibbeler(new SpinningDot(LoadingType.redColor, 1000), new SpinningModifier(0, 1000, true)));
+        addFlibbeler(new Flibbeler(new Dot(LoadingType.blueColor, 0f), new SpinningModifier()));
+        addFlibbeler(new Flibbeler(new Dot(LoadingType.redColor, 0f), new SpinningModifier(0, 1000, true)));
+        addFlibbeler(new Flibbeler(new Dot(LoadingType.greenColor, 0f), new SpinningModifier(), new PulseModifier()));
     }
 }

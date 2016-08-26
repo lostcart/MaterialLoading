@@ -1,4 +1,4 @@
-package com.lostcart.materialloading.types.modifiers;
+package com.lostcart.materialloading.types.modifiers.base;
 
 import android.graphics.Canvas;
 
